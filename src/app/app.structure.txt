@@ -1,0 +1,15 @@
+● src
++---● app
+|   +--● marriage-registry
+|   |  |--marriage-registry.component.ts|.html
+|   |  |
+|   |  +--● marriage-registry-form
+|   |     |--marriage-registry-form.component.ts|.html
+|   |
+|   +--● shared
+|   |  |--marriage-registry.service.ts
+|   |  |--marriage.model.ts
+|   |
+|   |--app.module.ts
+|
+|--index.html 

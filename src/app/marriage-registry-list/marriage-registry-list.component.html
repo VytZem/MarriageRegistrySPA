@@ -1,0 +1,34 @@
+<button type="button" class="btn btn-primary float-end m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+  (click)="modalAdd()">  
+  Add new marriage record
+  </button>
+
+<table class="table table-striped">
+    <thead>
+        <th>Marriage date</th>
+        <th>Spouse</th>
+        <th>Spouse</th>
+    </thead>
+    <tbody>
+         <tr *ngFor="let item of marriageRecordList$|async">
+             <td>{{item.marriageDate | date:'yyyy-MM-dd'}}</td>                      
+        <td *ngFor="let person of item.persons">
+          {{person.firstName}} {{person.lastName}}
+        </td>      
+         </tr>
+    </tbody>
+</table>
+   
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">{{modalTitle}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modalClose()" id="add-modal-close"></button>
+        </div>
+        <div class="modal-body">
+          <app-marriage-registry-form [marriageRecord]="marriageRecord" *ngIf="activateAddMarriageRegistryFormComponent"></app-marriage-registry-form> 
+      </div>
+      </div>
+    </div>
+  </div>

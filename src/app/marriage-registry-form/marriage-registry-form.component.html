@@ -1,0 +1,89 @@
+<form class="row g-3">
+  <div class="col-12">
+    <mat-form-field appearance="fill">
+      <mat-label>Marriage date</mat-label>
+      <input matInput [matDatepicker]="picker" required name="marriageDate"
+      [(ngModel)]="marriageRecord.marriageDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>  
+  </div>
+  <fieldset class="col-12 the-fieldset">
+    <legend class="the-legend">First spouse data</legend>
+    <div class="col-md-12">
+      <label for="firstSpouseFirstName" class="form-label">First name</label>
+      <input type="text" class="form-control" placeholder="First name" aria-label="First name" name="firstSpouseFirstName"
+      #firstSpouseFirstName="ngModel" required maxlength="200" [(ngModel)]="marriageRecord.persons[0].firstName">    
+      <div *ngIf="firstSpouseFirstName.touched && firstSpouseFirstName.invalid" class="alert alert-danger">
+        <div *ngIf="firstSpouseFirstName.errors && firstSpouseFirstName.errors['required']">Firstname is required.</div>
+      </div>       
+    </div>
+    <div class="col-md-12">
+      <label for="firstSpouseLastName" class="form-label">Last name</label>
+      <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="firstSpouseLastName" 
+      #firstSpouseLastName="ngModel" required maxlength="200" [(ngModel)]="marriageRecord.persons[0].lastName"> 
+      <div *ngIf="firstSpouseLastName.touched && firstSpouseLastName.invalid" class="alert alert-danger">
+        <div *ngIf="firstSpouseLastName.errors && firstSpouseLastName.errors['required']">Lastname is required.</div>
+      </div>  
+     </div>
+    <div class="col-md-12">
+      <label for="firstSpousePersonalCode" class="form-label">Personal code</label>
+      <input type="text" class="form-control"  placeholder="Personal code" aria-label="Personal code" name="firstSpousePersonalCode"
+      #firstSpousePersonalCode="ngModel" required maxlength="20" [(ngModel)]="marriageRecord.persons[0].personalCode">
+      <div *ngIf="firstSpousePersonalCode.touched  && firstSpousePersonalCode.invalid" class="alert alert-danger">
+        <div *ngIf="firstSpousePersonalCode.errors && firstSpousePersonalCode.errors?.['required']">Personal code is required.</div>
+      </div>  
+    </div>
+   </fieldset>  
+   <fieldset class="col-12 the-fieldset">
+    <legend class="the-legend">Second spouse data</legend>
+    <div class="col-md-12">
+      <label for="secondSpouseFirstName" class="form-label">First name</label>
+      <input type="text" class="form-control"  placeholder="First name" aria-label="First name" name="secondSpouseFirstName"
+      #secondSpouseFirstName="ngModel" required maxlength="200" [(ngModel)]="marriageRecord.persons[1].firstName">   
+      <div *ngIf="secondSpouseFirstName.touched && secondSpouseFirstName.invalid" class="alert alert-danger">
+        <div *ngIf="secondSpouseFirstName.errors && secondSpouseFirstName.errors?.['required']">Firstname is required.</div>
+      </div>  
+    </div>
+    <div class="col-md-12">
+      <label for="secondSpouseLastName" class="form-label">Last name</label>
+      <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="secondSpouseLastName"
+      #secondSpouseLastName="ngModel" required maxlength="200" [(ngModel)]="marriageRecord.persons[1].lastName">  
+      <div *ngIf="secondSpouseLastName.touched && secondSpouseLastName.invalid" class="alert alert-danger">
+        <div *ngIf="secondSpouseLastName.errors && secondSpouseLastName.errors?.['required']">Lastname is required.</div>
+      </div>       
+    </div>
+    <div class="col-md-12">
+      <label for="secondSpousePersonalCode" class="form-label">Personal code</label>
+      <input type="text" class="form-control" placeholder="Personal code" aria-label="Personal code" name="secondSpousePersonalCode"
+      #secondSpousePersonalCode="ngModel" required maxlength="20" [(ngModel)]="marriageRecord.persons[1].personalCode">  
+      <div *ngIf="secondSpousePersonalCode.touched && secondSpousePersonalCode.invalid" class="alert alert-danger">
+        <div *ngIf="secondSpousePersonalCode.errors && secondSpousePersonalCode.errors?.['required']">Personal code is required.</div>
+      </div>  
+    </div>   
+    </fieldset>
+    <div class="col-12">
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group me-2" role="group" aria-label="First group">
+        <button id="add-button" (click)="addMarriageRecord()" class="btn btn-primary">
+          Add
+        </button>
+      </div>
+      <div class="btn-group me-2" role="group" aria-label="Second group">
+        <button (click)="closeModal()" class="btn btn-secondary">
+          Close
+        </button>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-12">
+    <div class="alert alert-success" role="alert" id="add-success-alert">
+    Marriage record successfully addded !
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="alert alert-danger" role="alert" id="add-error-alert">
+    </div>  
+  </div>
+</form>
