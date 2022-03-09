@@ -1,5 +1,14 @@
 # MarriageRegistrySPA
 
+Marriage registry single page application is front-end application that communicates with MarriageRegistryAPI application.
+
+To configure application set API_URL of MarriageRegistryAPI in src --> enviroments -- environment.prod.ts (Default: http://localhost:5000).
+
+Commands to run application in visual studio code:
+
+npm install
+ng serve --o
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
 
 ## Development server
